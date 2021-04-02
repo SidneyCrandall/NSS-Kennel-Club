@@ -7,3 +7,6 @@ export const AnimalCard = () => (
         <div className="animal__breed">Breed: Poodle</div>
     </section>
 )
+
+
+//An exported function that represents the HTML of what will be multiple different animals. 

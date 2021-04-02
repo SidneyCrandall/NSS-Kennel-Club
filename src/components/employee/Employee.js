@@ -7,3 +7,6 @@ export const EmployeeCard = () => (
         <div className="employee__address">214 Princess Buttercup Way</div>
     </section>
 )
+
+
+//An exported function that represents the HTML of what will be multiple different employee. 

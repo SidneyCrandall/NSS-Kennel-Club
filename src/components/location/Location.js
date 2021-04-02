@@ -7,3 +7,6 @@ export const LocationCard = () => (
         <div className="location__address">1228 Goblin King Drive</div>
     </section>
 )
+
+
+//An exported function that represents the HTML of what will be multiple different location. 
