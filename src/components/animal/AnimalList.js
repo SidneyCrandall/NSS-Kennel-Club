@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // Import the component we need.
 import { AnimalCard } from './AnimalCard'
-import { getAllAnimals, getAnimalById } from '../../modules/AnimalManager'
+import { getAllAnimals } from '../../modules/AnimalManager'
 
 // useEffect hook accepts two parameters: function and array.
 // The Function parameter is where you place code that interacts with an external resource. The array parameter is used to control when the function parameter is executed.
@@ -13,8 +13,9 @@ export const AnimalList = () => {
     const getAnimals = () => {
         // After the data comes back from the API, we 
         // use the setAnimals function to update state 
-        return getAllAnimals.then(animalsFromAPI => {
-            setAnimals(animalsFromAPI);
+        return getAllAnimals()
+            .then(animalsFromAPI => {
+                setAnimals(animalsFromAPI);
         });
     };
 
@@ -26,7 +27,7 @@ export const AnimalList = () => {
  //  Finally we use map() to "loop over" the animals array to show a list of animal cards.  
     return (
         <div className="conatiner-cards">
-            {animals.map(animal => <AnimalCard />)}
+            {animals.map(animal => <AnimalCard key={animal.id} animal={animal}/>)}
         </div>
     );
 };

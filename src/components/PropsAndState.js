@@ -24,3 +24,5 @@ export const PropsAndState = ({ yourName }) => {
 
 //Prop = properites we can pass to children.
 //Only state can be passed down 
+
+// useState is a function that returns a variabe to hold a vaule, and a function to update the value.
