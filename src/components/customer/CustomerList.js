@@ -10,7 +10,13 @@ export const CustomerList = () => {
             .then(customersFromAPI => {
                 setCustomers(customersFromAPI)
         });
-    }
+    };
+
+    const handleDeleteCustomer = id => {
+        delete(id)
+            .then(() => getAllCustomers()
+                .then(setCustomers));
+    };
 
     useEffect(() => {
         getCustomers()
@@ -18,8 +24,8 @@ export const CustomerList = () => {
 
     return (
         <div className="container-cards">
-            {customers.map(customer => <Customer key={customer.id} customer={customer} />)}
+            {customers.map(customer => 
+            <Customer key={customer.id} customer={customer} handleDeleteCustomer={handleDeleteCustomer} />)}
         </div>
-    )
-
-}
+    );
+};

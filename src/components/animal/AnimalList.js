@@ -19,6 +19,12 @@ export const AnimalList = () => {
         });
     };
 
+    const handleDeleteAnimal = id => {
+        delete(id)
+        .then(() => getAllAnimals()
+            .then(setAnimals));
+    };
+
  // goot the animals from the API on the componenet's first render
     useEffect(() => {
         getAnimals();
@@ -27,7 +33,8 @@ export const AnimalList = () => {
  //  Finally we use map() to "loop over" the animals array to show a list of animal cards.  
     return (
         <div className="conatiner-cards">
-            {animals.map(animal => <AnimalCard key={animal.id} animal={animal}/>)}
+            {animals.map(animal => 
+            <AnimalCard key={animal.id} animal={animal} handleDeleteAnimal={handleDeleteAnimal}/>)}
         </div>
     );
 };
