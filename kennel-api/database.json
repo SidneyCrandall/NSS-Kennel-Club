@@ -8,9 +8,9 @@
     "customers": [
         {
             "id": 1,
-            "name": "Hannah Hall",
+            "name": "Sidney Crandall",
             "phoneNumber": "615-123-4567",
-            "address": "7002 Chestnut Ct"
+            "address": "101 Sanctuary Pandora"
         },
         {
             "id": 2,
@@ -26,7 +26,7 @@
         },
         {
             "id": 4, 
-            "name": "Brpdy Edwin",
+            "name": "Brody Edwin",
             "phoneNumber": "615-739-3153",
             "address": "1997 Sunnydale Ct"
         }
