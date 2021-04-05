@@ -1,0 +1,64 @@
+{
+    "animals": [
+        { "id": 1, "name": "Doodles", "breed": "Poodle"},
+        { "id": 2, "name": "Decker", "breed": "German Shepherd" },
+        { "id": 3, "name": "Esme", "breed": "Pitbull" },
+        {"id": 4, "name": "Inari", "breed": "Shiba Inu"}
+    ],
+    "customers": [
+        {
+            "id": 1,
+            "name": "Hannah Hall",
+            "phoneNumber": "615-123-4567",
+            "address": "7002 Chestnut Ct"
+        },
+        {
+            "id": 2,
+            "name": "Miko Crandall",
+            "phoneNumber": "615-987-6543",
+            "address": "1313 Gallifrey Way" 
+        },
+        {
+            "id": 3,
+            "name": "Marit Crews",
+            "phoneNumber": "615-456-1239",
+            "address": "304 Twin Peaks"
+        },
+        {
+            "id": 4, 
+            "name": "Brpdy Edwin",
+            "phoneNumber": "615-739-3153",
+            "address": "1997 Sunnydale Ct"
+        }
+    ],
+    "employees": [
+        {
+            "id": 1,
+            "name": "Digby Hayes" ,
+            "address": "214 Princess Buttercup Way"
+        },
+        {
+            "id": 2,
+            "name": "Fenrir McKaughan",
+            "address": "999 Cthulu Street"
+        }
+    ],
+    "locations": [
+        {
+            "id": 1,
+            "name": "Nashville North",
+            "address": "8422 Johnson Pike"
+        },
+        {
+            "id": 2,
+            "name": "Hyrule",
+            "address": "209 Emory Drive"
+        },
+        {
+            "id": 3,
+            "name": "The Tardis",
+            "address": "1228 Goblin King Drive"
+        }
+    ]
+}
+

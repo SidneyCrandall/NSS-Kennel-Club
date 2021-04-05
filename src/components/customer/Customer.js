@@ -7,3 +7,5 @@ export const Customer = () => (
         <div className="customer__address">1313 Gallifrey Lane</div>
     </section>
 )
+
+//An exported function that represents the HTML of what will be multiple different customers. 
