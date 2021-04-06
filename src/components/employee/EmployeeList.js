@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { EmployeeCard } from './Employee'
-import { getAllEmployees } from '../../modules/EmployeeManager'
+import { deleteEmployee, getAllEmployees } from '../../modules/EmployeeManager'
 
 export const EmployeeList = () => {
     const [employees, setEmployees] = useState([]);
@@ -13,7 +13,7 @@ export const EmployeeList = () => {
 };
 
     const handleDeleteEmployee = id => {
-        delete(id)
+        deleteEmployee(id)
             .then(() => getAllEmployees()
                 .then(setEmployees))
     };

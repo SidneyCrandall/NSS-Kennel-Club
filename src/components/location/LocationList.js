@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { LocationCard } from './Location';
-import { getAllLocations } from '../../modules/LocationManager';
+import { deleteLocation, getAllLocations } from '../../modules/LocationManager';
 
 export const LocationList = () => {
     const [locations, setLocations] = useState([]);
@@ -13,7 +13,7 @@ export const LocationList = () => {
     };
 
     const handleDeleteLocation = id => {
-        delete(id)
+        deleteLocation(id)
             .then(() => getAllLocations()
                 .then(setLocations))
     };

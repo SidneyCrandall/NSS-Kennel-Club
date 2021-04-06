@@ -6,13 +6,12 @@ export const getAllCustomers = () => {
 }
 
 export const getCustomerById = (id) => {
-    return fetch(`${remoteURL}/customers/${id}?_expand=location&_expand=customer`)
+    return fetch(`${remoteURL}/customers/${id}?_expand=location&_expand=animal`)
     .then(res => res.json())
 }
 
 export const deleteCustomer = (id) => {
     return fetch(`${remoteURL}/customers/${id}`,{
         method: "DELETE"
-            .then(result => result.json())
-    })
+    }).then(result => result.json()) 
 }

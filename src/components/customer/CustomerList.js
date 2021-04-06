@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Customer } from './Customer';
-import { getAllCustomers } from '../../modules/CustomerManager';
+import { deleteCustomer, getAllCustomers } from '../../modules/CustomerManager';
 
 export const CustomerList = () => {
     const [customers, setCustomers] = useState([]);
@@ -13,8 +13,8 @@ export const CustomerList = () => {
     };
 
     const handleDeleteCustomer = id => {
-        delete(id)
-            .then(() => getAllCustomers()
+        deleteCustomer(id)
+            .then(() => getCustomers()
                 .then(setCustomers));
     };
 

@@ -7,7 +7,7 @@ export const getAllLocations = () => {
 
 export const getLocationById = (id) => {
     //be sure your animals have good data and related to a location and customer
-        return fetch(`${remoteURL}/locations/${id}?_expand=location&_expand=customer`)
+        return fetch(`${remoteURL}/locations/${id}`)
         .then(res => res.json())
 };
 

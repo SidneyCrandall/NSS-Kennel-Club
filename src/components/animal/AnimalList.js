@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // Import the component we need.
 import { AnimalCard } from './AnimalCard'
-import { getAllAnimals } from '../../modules/AnimalManager'
+import { deleteAnimal, getAllAnimals } from '../../modules/AnimalManager'
 
 // useEffect hook accepts two parameters: function and array.
 // The Function parameter is where you place code that interacts with an external resource. The array parameter is used to control when the function parameter is executed.
@@ -19,10 +19,10 @@ export const AnimalList = () => {
         });
     };
 
+ // function to discharge animal and re render state
     const handleDeleteAnimal = id => {
-        delete(id)
-        .then(() => getAllAnimals()
-            .then(setAnimals));
+        deleteAnimal(id)
+        .then(() => getAnimals())
     };
 
  // goot the animals from the API on the componenet's first render

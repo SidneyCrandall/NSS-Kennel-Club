@@ -7,7 +7,7 @@ export const getAllEmployees = () => {
 
 export const getEmployeeById = (id) => {
     //be sure your animals have good data and related to a location and customer
-        return fetch(`${remoteURL}/employee/${id}?_expand=location&_expand=customer`)
+        return fetch(`${remoteURL}/employee/${id}?_expand=location`)
         .then(res => res.json())
 }
 
