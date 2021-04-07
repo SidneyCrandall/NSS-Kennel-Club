@@ -10,7 +10,8 @@ import { LocationDetail } from "./location/LocationDetail"
 import { AnimalForm } from './animal/AnimalForm'
 import { CustomerForm } from "./customer/CustomerForm"
 import Login from "./auth/Login";
-
+import { AnimalEditForm } from "./animal/AnimalEditForm"
+ 
 
 export const ApplicationViews = () => {
 
@@ -26,18 +27,29 @@ export const ApplicationViews = () => {
             {/* Render the animal list when http://localhost:3000/animals 
                 All the Animal Routes*/}
             <Route exact path="/animals" render={props =>{
-                if(isAuthenticated()) {
+                if (isAuthenticated()) {
                    return <AnimalList {...props} /> 
                 } else {
                     return <Redirect to="/login" />
                 }
             }} />
+
+            <Route path="/animals/:animalId(\d+)/edit" render={props => {
+                if (isAuthenticated()) {
+                    return <AnimalEditForm {...props} />
+                } else {
+                    return <Redirect to="/login" />
+                }
+            }} />
             
-            {/*This is a new route to handle a URL with the following pattern: http://localhost:3000/animals/1 
-            It will not handle the following URL because the `(\d+)` matches only numbers after the final slash in the URL http://localhost:3000/animals/jack*/}
-            <Route path="/animals/:animalId(\d+)">
-                <AnimalDetail />
-            </Route>
+            <Route exact path="/animals/:animalId(\d+)" render={props => {
+                if (isAuthenticated()) {
+                    return <AnimalDetail animalId={parseInt(props.match.animalId)} {...props} />
+                } else {
+                    return <Redirect to="/login" />
+                }
+            }} />
+             
 
             <Route path="/animals/create">
                 <AnimalForm />
@@ -74,7 +86,9 @@ export const ApplicationViews = () => {
 
         </>
 
-    )
+)
 }
 
 // "Exact" is needed on the first route, otherwise it will also match the other routes, and the Home will render for every route
+{/*This is a new route to handle a URL with the following pattern: http://localhost:3000/animals/1 
+It will not handle the following URL because the `(\d+)` matches only numbers after the final slash in the URL http://localhost:3000/animals/jack*/}
