@@ -3,6 +3,7 @@ import { deleteAnimal, getAnimalById } from '../../modules/AnimalManager';
 import './AnimalDetail.css';
 import { useParams, useHistory } from "react-router-dom"
 
+
 export const AnimalDetail = () => {
     const [animal, setAnimal] = useState({ name: "", breed: "" });
     const [isLoading, setIsLoading] = useState(true);

@@ -1,8 +1,9 @@
 import React from "react"
 import "./Animal.css"
 import { Link } from "react-router-dom"
+import "./dog.svg";
 
-export const AnimalCard = ({ animal, handleDeleteAnimal }) => {
+export const AnimalCard = ({ animal }) => {
     return (
     <div className="card">
       <div className="card-content">

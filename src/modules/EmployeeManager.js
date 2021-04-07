@@ -7,9 +7,9 @@ export const getAllEmployees = () => {
 
 export const getEmployeeById = (id) => {
     //be sure your animals have good data and related to a location and customer
-        return fetch(`${remoteURL}/employee/${id}?_expand=location`)
+        return fetch(`${remoteURL}/employees/${id}?_expand=location`)
         .then(res => res.json())
-}
+};
 
 export const deleteEmployee = (id) => {
     return fetch(`${remoteURL}/employees/${id}`, {
@@ -17,3 +17,12 @@ export const deleteEmployee = (id) => {
     }).then(result => result.json())
 };
 
+export const addEmployee = (newEmployee) => {
+    return fetch(`${remoteURL}/employees`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newEmployee)
+    }).then(response => response.json())
+}
