@@ -20,6 +20,20 @@
       "breed": "Shiba Inu",
       "customerId": 3,
       "locationId": 3
+    },
+    {
+      "name": "Sloth ",
+      "breed": "Jack Russel",
+      "locationId": 1,
+      "customerId": 1,
+      "id": 5
+    },
+    {
+      "name": "Geralt",
+      "breed": "Wolfhound",
+      "locationId": 3,
+      "customerId": 1,
+      "id": 6
     }
   ],
   "customers": [

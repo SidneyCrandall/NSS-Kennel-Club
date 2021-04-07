@@ -30,8 +30,8 @@ export const LocationDetail = () => {
     }, [locationId]);
     
     return (
-        <section className="card">
-            <h3 className="card-locationname">{location.name}</h3>
+        <section className="animal">
+            <h3 className="animal__name">{location.name}</h3>
             <div>{location.address}</div>
             <button type="button" disabled={isLoading} onClick={handleDelete}>
                 Closed
