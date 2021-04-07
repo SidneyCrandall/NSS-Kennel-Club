@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 // Import the component we need.
 import { AnimalCard } from './AnimalCard'
 import { deleteAnimal, getAllAnimals } from '../../modules/AnimalManager'
+import { useHistory } from "react-router-dom"
 
 // useEffect hook accepts two parameters: function and array.
 // The Function parameter is where you place code that interacts with an external resource. The array parameter is used to control when the function parameter is executed.
@@ -9,6 +10,8 @@ import { deleteAnimal, getAllAnimals } from '../../modules/AnimalManager'
 export const AnimalList = () => {
 //The initial state is an empty array
     const [animals, setAnimals] = useState([]);
+
+    const history = useHistory();
 
     const getAnimals = () => {
         // After the data comes back from the API, we 
@@ -31,13 +34,22 @@ export const AnimalList = () => {
     }, []);
 
  //  Finally we use map() to "loop over" the animals array to show a list of animal cards.  
+  
     return (
+        <>
+        <section className="section-content">
+            <button type="button" className="btn" onClick={() => {history.push("/animals/create")}}>
+                Admit Animal
+            </button>
+        </section>
+
         <div className="conatiner-cards">
             {animals.map(animal => 
             <AnimalCard key={animal.id} animal={animal} handleDeleteAnimal={handleDeleteAnimal}/>)}
         </div>
-    );
-};
+        </>
+            );
+        }
 
 // React components re-render repeatedly and often at surprising times. It would be a waste of time to re-render the API call each time. 
 // Instead this saves data afer the first render and simply uses that data when we need it.
