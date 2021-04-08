@@ -1,18 +1,11 @@
 {
   "animals": [
     {
-      "id": 1,
-      "name": "Handsome Jack",
-      "breed": "Mutt",
-      "customerId": 4,
-      "locationId": 3
-    },
-    {
       "id": 3,
-      "name": "Esme",
-      "breed": "Pitbull",
+      "name": "Cullem",
+      "breed": "French Bulldog",
       "locationId": 1,
-      "customerId": 2
+      "customerId": "4"
     },
     {
       "id": 4,
@@ -29,36 +22,50 @@
       "id": 5
     },
     {
+      "id": 6,
       "name": "Geralt",
       "breed": "Wolfhound",
       "locationId": 3,
+      "customerId": "4"
+    },
+    {
+      "id": 7,
+      "name": "Charli",
+      "breed": "Jack Russel",
+      "locationId": 2,
+      "customerId": 3
+    },
+    {
+      "name": "Tom Nook",
+      "breed": "Raccoon",
+      "locationId": 3,
       "customerId": 1,
-      "id": 6
+      "id": 8
     }
   ],
   "customers": [
     {
       "id": 1,
       "name": "Doctor Who",
-      "phoneNumber": "615-555-8888",
+      "email": "dw@me.com",
       "address": "3BL Sanctuary Pandorica"
     },
     {
       "id": 2,
       "name": "Miko Crandall",
-      "phoneNumber": "615-987-6543",
+      "email": "mc@me.com",
       "address": "1313 Gallifrey Way"
     },
     {
       "id": 3,
       "name": "Marit Crews",
-      "phoneNumber": "615-456-1239",
+      "email": "mac@me.com",
       "address": "304 Twin Peaks"
     },
     {
       "id": 4,
       "name": "Brody Edwin",
-      "phoneNumber": "615-739-3153",
+      "email": "be@me.com",
       "address": "1997 Sunnydale Ct"
     }
   ],

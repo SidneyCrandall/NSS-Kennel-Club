@@ -80,10 +80,6 @@ export const CustomerForm = () => {
             </div>
         </fieldset>
         <fieldset>
-            <div className="form-group">
-                <label htmlFor="number">Customer Phone Number:</label>
-                <input type="text" id="number" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Customer Number" value={customer.phoneNumber} />
-            </div>
         </fieldset>
         <fieldset>
             <div className="form-group">

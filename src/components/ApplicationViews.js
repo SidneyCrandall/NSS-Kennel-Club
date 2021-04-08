@@ -1,21 +1,20 @@
 import React from "react"
-import { Route, Redirect } from "react-router-dom"
+import { Route } from "react-router-dom"
 import { Home } from "./Home"
 import { AnimalList } from "./animal/AnimalList"
 import { EmployeeList } from "./employee/EmployeeList"
 import { LocationList } from "./location/LocationList"
 import { CustomerList } from "./customer/CustomerList"
-import { AnimalDetail } from "./animal/AnimalDetail"
-import { LocationDetail } from "./location/LocationDetail"
+//import { AnimalDetail } from "./animal/AnimalDetail"
+//import { LocationDetail } from "./location/LocationDetail"
 import { AnimalForm } from './animal/AnimalForm'
-import { CustomerForm } from "./customer/CustomerForm"
-import Login from "./auth/Login";
-import { AnimalEditForm } from "./animal/AnimalEditForm"
- 
+import { AnimalEditForm } from "./animal/AnimalEditForm";
+import { AnimalDetail } from "./animal/AnimalDetail";
+
 
 export const ApplicationViews = () => {
 
-    const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
+    //const [isAunthenticated, setIsAuthnticated] = useState(sessionStorage.getItem)
 
     return (
         <>
@@ -23,72 +22,57 @@ export const ApplicationViews = () => {
             <Route exact path="/">
                 <Home />
             </Route>
-
-            {/* Render the animal list when http://localhost:3000/animals 
-                All the Animal Routes*/}
-            <Route exact path="/animals" render={props =>{
-                if (isAuthenticated()) {
-                   return <AnimalList {...props} /> 
-                } else {
-                    return <Redirect to="/login" />
-                }
-            }} />
-
-            <Route path="/animals/:animalId(\d+)/edit" render={props => {
-                if (isAuthenticated()) {
-                    return <AnimalEditForm {...props} />
-                } else {
-                    return <Redirect to="/login" />
-                }
-            }} />
             
-            <Route exact path="/animals/:animalId(\d+)" render={props => {
-                if (isAuthenticated()) {
-                    return <AnimalDetail animalId={parseInt(props.match.animalId)} {...props} />
-                } else {
-                    return <Redirect to="/login" />
-                }
-            }} />
-             
+            {/*<Route path="/login">
+	            <Login />
+            </Route>
+
+            <Route path="/register">
+            	<Register />
+            </Route>
+
+            {/* Render the animal list when http://localhost:3000/animals */}
+            <Route exact path="/animals">
+              <AnimalList />
+            </Route>
+
+            <Route path="/animals/:animalId(\d+)">
+                <AnimalDetail />
+            </Route>
 
             <Route path="/animals/create">
                 <AnimalForm />
             </Route>
-            {/* End of Animal Routes */}
 
+            <Route path="/animals/:animalId(\d+)/edit">
+                <AnimalEditForm />
+        
+            </Route>
 
-            {/*Render */}
             <Route exact path="/customers">
                 <CustomerList />
             </Route>
 
-            <Route path="/customers/create">
-                <CustomerForm />
-            </Route>
+            {/*<Route path="/customers/:customerId(\d+)">
+                <CustomerDetail />
+    </Route>*/}
 
-            {/*Render
-                Start of Location Routes */}
-            <Route exact path="/locations">
+            <Route path="/locations">
                 <LocationList />
             </Route>
 
-            <Route path="/locations/:locationId(\d+)">
-                <LocationDetail />
-            </Route>
-            {/* End of Location Routes */}
-
-            {/*Render */}
-            <Route path="/employees">
+            <Route path="/Employees">
                 <EmployeeList />
             </Route>
 
-            <Route path="/login" component={Login} />
-
         </>
 
-)
+    )
 }
 
 // "Exact" is needed on the first route, otherwise it will also match the other routes, and the Home will render for every route
-{/*This is a new route to handle a URL with the following pattern: http://localhost:3000/animals/1 
-It will not handle the following URL because the `(\d+)` matches only numbers after the final slash in the URL http://localhost:3000/animals/jack*/}
+//if(isAuthenticated()) {
+   // <AnimalList />
+  //} else {
+     // <Redirect to="/login" />
+  //}

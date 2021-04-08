@@ -6,7 +6,6 @@ export const getAllLocations = () => {
 };
 
 export const getLocationById = (id) => {
-    //be sure your animals have good data and related to a location and customer
         return fetch(`${remoteURL}/locations/${id}`)
         .then(res => res.json())
 };
@@ -17,7 +16,7 @@ export const deleteLocation = (id) => {
     }).then(result => result.json())
 };
 
-export const addLocation = (newLocation) => {
+/*export const addLocation = (newLocation) => {
     return fetch(`${remoteURL}/locations`, {
         method: "POST",
         headers: {
@@ -25,4 +24,4 @@ export const addLocation = (newLocation) => {
         },
         body: JSON.stringify(newLocation)
     }).then(response => response.json())
-}
+}*/
