@@ -5,7 +5,6 @@ import { AnimalList } from "./animal/AnimalList"
 import { EmployeeList } from "./employee/EmployeeList"
 import { LocationList } from "./location/LocationList"
 import { CustomerList } from "./customer/CustomerList"
-//import { AnimalDetail } from "./animal/AnimalDetail"
 //import { LocationDetail } from "./location/LocationDetail"
 import { AnimalForm } from './animal/AnimalForm'
 import { AnimalEditForm } from "./animal/AnimalEditForm";
@@ -57,7 +56,7 @@ export const ApplicationViews = () => {
                 <CustomerDetail />
     </Route>*/}
 
-            <Route path="/locations">
+            <Route exact path="/locations">
                 <LocationList />
             </Route>
 
