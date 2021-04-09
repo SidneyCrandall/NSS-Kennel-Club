@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import {updateEmployee, getEmployeeById} from "../../modules/EmployeeManager";
+import React, { useState, useEffect } from 'react';
+import { updateEmployee, getEmployeeById } from "../../modules/EmployeeManager";
 import "./EmployeeForm.css";
-import {useHistory, useParams} from 'react-router-dom';
-import {getAllLocations} from '../../modules/LocationManager';
-import {getAllAnimals} from '../../modules/AnimalManager';
+import { useHistory, useParams } from 'react-router-dom';
+import { getAllLocations } from '../../modules/LocationManager';
+import { getAllAnimals } from '../../modules/AnimalManager';
 
 export const EmployeeEditForm = () => {
 
@@ -24,7 +24,7 @@ export const EmployeeEditForm = () => {
         }
 
         stateToChange[event.target.id] = selectedVal
-            setEmployee(stateToChange);
+        setEmployee(stateToChange);
     };
 
     const updateExistingEmployee = event => {
@@ -46,7 +46,7 @@ export const EmployeeEditForm = () => {
             window.alert("Please select a location and an animal")
         } else {
             updateEmployee(editedEmployee)
-            .then(() => history.push("/employees"))
+                .then(() => history.push("/employees"))
         }
     }
 
@@ -67,14 +67,14 @@ export const EmployeeEditForm = () => {
 
     useEffect(() => {
         getAllAnimals()
-        .then(animalsFromAPI => {
-            setAnimals(animalsFromAPI)
-        });
+            .then(animalsFromAPI => {
+                setAnimals(animalsFromAPI)
+            });
     }, []);
 
     return (
         <>
-                    <form>
+            <form>
                 <fieldset>
                     <div className="formgrid">
                         <input
@@ -113,19 +113,19 @@ export const EmployeeEditForm = () => {
                         </select>
                         <label htmlFor="location">Location</label>
 
-					<select 
-                    value={employee.animalId} 
-                    name="animal" id="animalId" 
-                    onChange={handleFieldChange} 
-                    className="form-control" >
-						<option value="0">Select an animal</option>
-						{animals.map(a => (
-							<option key={a.id} value={a.id}>
-								{a.name}
-							</option>
-						))}
-					</select>
-                    <label htmlFor="animalId">Animal: </label>
+                        <select
+                            value={employee.animalId}
+                            name="animal" id="animalId"
+                            onChange={handleFieldChange}
+                            className="form-control" >
+                            <option value="0">Select an animal</option>
+                            {animals.map(a => (
+                                <option key={a.id} value={a.id}>
+                                    {a.name}
+                                </option>
+                            ))}
+                        </select>
+                        <label htmlFor="animalId">Animal: </label>
 
                     </div>
                     <div className="alignRight">

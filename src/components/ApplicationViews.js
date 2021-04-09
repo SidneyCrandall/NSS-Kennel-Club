@@ -15,6 +15,7 @@ import { EmployeeEditForm } from "./employee/EmployeeEditForm"
 import { LocationList } from "./location/LocationList"
 import { LocationDetail } from "./location/LocationDetail"
 import { LocationForm } from "./location/LocationForm"
+import { LocationEditForm } from "./location/LocationEditForm";
 
 import { CustomerList } from "./customer/CustomerList"
 import { CustomerDetail } from "./customer/CustomerDetail";
@@ -23,6 +24,7 @@ import { CustomerEditForm } from "./customer/CustomerEditForm";
 
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
+
 
 
 export const ApplicationViews = ({isAuthenticated, setAuthUser}) => {
@@ -48,7 +50,7 @@ export const ApplicationViews = ({isAuthenticated, setAuthUser}) => {
             </Route>
 
 
-            <Route path="/animals/:animalId(\d+)">
+            <Route exact path="/animals/:animalId(\d+)">
                 <AnimalDetail />
             </Route>
 
@@ -82,7 +84,7 @@ export const ApplicationViews = ({isAuthenticated, setAuthUser}) => {
                 <LocationList />
             </Route>
 
-            <Route path="/locations/:locationId(\d+)">
+            <Route exact path="/locations/:locationId(\d+)">
                 <LocationDetail />
             </Route>
 
@@ -90,12 +92,16 @@ export const ApplicationViews = ({isAuthenticated, setAuthUser}) => {
                 <LocationForm />
             </Route>
 
+            <Route path="/locations/:locationsId(\d+)/edit">
+                <LocationEditForm />
+            </Route>
+
 
             <Route exact path="/employees">
                 <EmployeeList />
             </Route>
 
-            <Route path="/employees/:employeeId(\d+)">
+            <Route exact path="/employees/:employeeId(\d+)">
                 <EmployeeDetail />
             </Route>
 
