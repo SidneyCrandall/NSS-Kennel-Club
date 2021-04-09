@@ -4,15 +4,15 @@
       "id": 3,
       "name": "Cullem",
       "breed": "French Bulldog",
-      "locationId": "3",
-      "customerId": "4"
+      "locationId": 3,
+      "customerId": 4
     },
     {
       "id": 4,
       "name": "Inari",
       "breed": "Shiba Inu",
-      "customerId": 3,
-      "locationId": 3
+      "locationId": 3,
+      "customerId": 6
     },
     {
       "name": "Sloth ",
@@ -26,7 +26,7 @@
       "name": "Geralt",
       "breed": "Wolfhound",
       "locationId": 3,
-      "customerId": "4"
+      "customerId": 5
     },
     {
       "id": 7,
@@ -36,71 +36,130 @@
       "customerId": 3
     },
     {
+      "id": 8,
       "name": "Tom Nook",
       "breed": "Raccoon",
       "locationId": 3,
+      "customerId": 2
+    },
+    {
+      "name": "LD",
+      "breed": "Corgi",
+      "locationId": 4,
       "customerId": 1,
-      "id": 8
+      "id": 9
     }
   ],
   "customers": [
     {
       "id": 1,
       "name": "Doctor Who",
+      "address": "67 Howl's Moving Castle",
       "email": "dw@me.com",
-      "address": "3BL Sanctuary Pandorica"
+      "animalId": 8
     },
     {
       "id": 2,
       "name": "Miko Crandall",
       "email": "mc@me.com",
-      "address": "1313 Gallifrey Way"
+      "address": "1313 Gallifrey Way",
+      "animalId": 8
     },
     {
       "id": 3,
       "name": "Marit Crews",
       "email": "mac@me.com",
-      "address": "304 Twin Peaks"
+      "address": "304 Twin Peaks",
+      "animalId": 7
     },
     {
       "id": 4,
       "name": "Brody Edwin",
       "email": "be@me.com",
-      "address": "1997 Sunnydale Ct"
+      "address": "1997 Sunnydale Ct",
+      "animalId": 3
     },
     {
       "email": "sc@sc.com",
       "name": "Sidney Crandall",
-      "id": 5
+      "id": 5,
+      "animalId": 6,
+      "address": "1515 Deku Drive"
+    },
+    {
+      "id": 6,
+      "name": "Chuck Josh",
+      "address": "45 Neverending Story",
+      "email": "cj@me.com",
+      "animalId": 4
+    },
+    {
+      "name": "Bowie",
+      "address": "12 StarMan Lane",
+      "phoneNumber": "",
+      "locationId": 4,
+      "animalId": 9,
+      "id": 7
     }
   ],
   "employees": [
     {
       "id": 1,
       "name": "Digby Hayes",
-      "address": "214 Princess Buttercup Way"
+      "email": "dh@me.com",
+      "locationId": 2,
+      "animalId": 4
     },
     {
       "id": 2,
       "name": "Fenrir McKaughan",
-      "address": "999 Cthulu Street"
+      "email": "fm@me.com",
+      "animalId": 8,
+      "locationId": 3
+    },
+    {
+      "name": "Ted Theodore Logan",
+      "email": "tl@me.com",
+      "locationId": 1,
+      "animalId": 3,
+      "id": 3
+    },
+    {
+      "name": "Bill S Preston, Esquire",
+      "email": "bp@me.com",
+      "locationId": 1,
+      "animalId": 6,
+      "id": 4
     }
   ],
   "locations": [
     {
       "id": 1,
       "name": "Rivia",
-      "address": "1025 Ciri Ct"
+      "address": "1025 Ciri Ct",
+      "animalId": 6,
+      "employeeId": 3
     },
     {
       "id": 2,
       "name": "Hyrule",
-      "address": "209 Emory Drive"
+      "address": "209 Emory Drive",
+      "animalId": 8,
+      "employeeId": 1
     },
     {
       "id": 3,
       "name": "The Tardis",
-      "address": "1228 Goblin King Drive"
+      "address": "1228 Goblin King Drive",
+      "employeeId": 2,
+      "animalId": 8
+    },
+    {
+      "name": "Stardew Valley",
+      "address": "101 Nintendo Rd",
+      "animalId": 7,
+      "employeeId": 1,
+      "id": 4
     }
   ]
 }

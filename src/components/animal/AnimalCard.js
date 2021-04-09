@@ -1,9 +1,7 @@
 import React from "react"
 import "./Animal.css"
 import { Link } from "react-router-dom"
-import "./dog.svg";
 import { useHistory } from "react-router-dom";
-
 
 export const AnimalCard = ({ animal, deleteAnimal }) => {
 

@@ -1,77 +1,81 @@
-import React, { useState, useEffect } from "react"
-import { useHistory, useParams } from "react-router-dom";
-import { updateAnimal, getAnimalById } from "../../modules/AnimalManager"
-import { getAllLocations } from '../../modules/LocationManager'
-import { getAllCustomers } from '../../modules/CustomerManager'
-import "./AnimalForm.css"
+import React, { useState, useEffect } from "react";
+import { updateAnimal, getAnimalById } from "../../modules/AnimalManager";
+import "./AnimalForm.css";
+import { useHistory, useParams } from 'react-router-dom';
+import { getAllLocations } from '../../modules/LocationManager';
+import { getAllCustomers } from '../../modules/CustomerManager';
 
 export const AnimalEditForm = () => {
-    const [animal, setAnimal] = useState({ name: "", breed: "" });
-    const [isLoading, setIsLoading] = useState(false);
+  const [animal, setAnimal] = useState({ name: "", breed: "" });
+  const [isLoading, setIsLoading] = useState(false);
 
-    const [locations, setLocations] = useState([]);
-    const [customers, setCustomers] = useState([]);
+  const { animalId } = useParams();
+  const history = useHistory();
 
+  const [locations, setLocations] = useState([]);
+  const [customers, setCustomers] = useState([]);
 
-    const {animalId} = useParams();
-    const history = useHistory();
-
-    const handleFieldChange = evt => {
-        // event is passed through, which matches id of form
-        const stateToChange = { ...animal };
-        // the object with dot notation
-        let selectedVal = evt.target.value
-        if (evt.target.id.includes("Id")) {
-          selectedVal = parseInt(selectedVal)
-        }
-        stateToChange[evt.target.id] = selectedVal;
-        // target the input nox. "dynamically referencing a property in my  object"
-        setAnimal(stateToChange); 
-    };
-
-    const updateExistingAnimal = evt => {
-        evt.preventDefault()
-        setIsLoading(true);
-
-        // This is an edit, so we need an id
-    const editedAnimal = {
-        id: animalId,
-        name: animal.name,
-        breed: animal.breed,
-        locationId: animal.locationId,
-        customerId: animal.customerId
-    };
-
-    updateAnimal(editedAnimal)
-        .then(() => history.push("/animals"))
+  const handleFieldChange = evt => {
+    const stateToChange = { ...animal };
+    let selectedVal = evt.target.value
+    if (evt.target.id.includes("Id")) {
+      selectedVal = parseInt(selectedVal)
     }
+    // look in the animal object copy and find the id of the key we are looking for
+    stateToChange[evt.target.id] = selectedVal
+    setAnimal(stateToChange);
+  };
 
-    useEffect(() => {
-      getAnimalById(animalId)
-            .then(animal => {
-                setAnimal(animal);
-                    setIsLoading(false);
-            });
-    }, [animalId]);
+  const updateExistingAnimal = evt => {
+    evt.preventDefault()
+    setIsLoading(true);
 
-    useEffect(() => {
-        // load loaction data and setState 
-        getAllLocations()
-            .then(locationsFromAPI => {
-                setLocations(locationsFromAPI)
-            })
-    }, []);
-    
-    useEffect(() => {
-        // load customer data and setState
-        getAllCustomers()
-            .then(customersFromAPI => {
-                setCustomers(customersFromAPI)
-            })
-    }, []);
+    // This is an edit, so we need the id
+    const editedAnimal = {
+      id: animalId,
+      name: animal.name,
+      breed: animal.breed,
+      locationId: animal.locationId,
+      customerId: animal.customerId
+    };
 
-    return (
-        <>
+    const locationId = animal.locationId
+    const customerId = animal.customerId
+
+    if (locationId === 0 || customerId === 0) {
+      window.alert("Please select a location and a customer")
+    } else {
+
+      updateAnimal(editedAnimal)
+        .then(() => history.push("/animals")
+        )
+    }
+  }
+
+  useEffect(() => {
+    getAnimalById(animalId)
+      .then(animal => {
+        setAnimal(animal);
+        setIsLoading(false);
+      });
+  }, [animalId]);
+
+  useEffect(() => {
+    getAllLocations()
+      .then(locationsFromAPI => {
+        setLocations(locationsFromAPI)
+      });
+  }, []);
+
+  useEffect(() => {
+    getAllCustomers()
+      .then(customersFromAPI => {
+        setCustomers(customersFromAPI)
+      });
+  }, []);
+
+  return (
+    <>
       <form>
         <fieldset>
           <div className="formgrid">
@@ -94,32 +98,38 @@ export const AnimalEditForm = () => {
               value={animal.breed}
             />
             <label htmlFor="breed">Breed</label>
+
+
+            <select
+              value={animal.locationId}
+              name="locationId"
+              id="locationId"
+              onChange={handleFieldChange}
+              className="form-control" >
+              <option value="0">Select a location</option>
+              {locations.map(l => (
+                <option key={l.id} value={l.id}>
+                  {l.name}
+                </option>
+              ))}
+            </select>
+            <label htmlFor="location">Location</label>
+
+            <select
+              value={animal.customerId}
+              name="customer" id="customerId"
+              onChange={handleFieldChange}
+              className="form-control" >
+              <option value="0">Select a customer</option>
+              {customers.map(c => (
+                <option key={c.id} value={c.id}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
+            <label htmlFor="customerId">Customer: </label>
+
           </div>
-          
-          <div className="form-group">
-                <label htmlFor="location">Assign to location: </label>
-                <select value={animal.locationId} name="locationId" id="locationId" onChange={handleFieldChange} className="form-control" >
-                    <option value="0">Select a location</option>
-                    {locations.map(l => (
-                        <option key={l.id} value={l.id}>
-                            {l.name}
-                        </option>
-                    ))}
-                </select>
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="customerId">Customer: </label>
-                <select value={animal.customerId} name="customer" id="customerId" onChange={handleFieldChange} className="form-control" >
-                    <option value="0">Select a customer</option>
-                    {customers.map(c => (
-                        <option key={c.id} value={c.id}>
-                            {c.name}
-                        </option>
-                    ))}
-                </select>
-            </div>
-
           <div className="alignRight">
             <button
               type="button" disabled={isLoading}
@@ -127,11 +137,10 @@ export const AnimalEditForm = () => {
               className="btn btn-primary"
             >Submit</button>
           </div>
-          
         </fieldset>
       </form>
     </>
-    )
+  );
 }
 
 //export default AnimalEditForm
