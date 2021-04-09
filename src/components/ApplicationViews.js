@@ -17,6 +17,10 @@ import { LocationDetail } from "./location/LocationDetail"
 import { LocationForm } from "./location/LocationForm"
 
 import { CustomerList } from "./customer/CustomerList"
+import { CustomerDetail } from "./customer/CustomerDetail";
+import { CustomerForm } from "./customer/CustomerForm";
+import { CustomerEditForm } from "./customer/CustomerEditForm";
+
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 
@@ -61,15 +65,24 @@ export const ApplicationViews = ({isAuthenticated, setAuthUser}) => {
                 <CustomerList />
             </Route>
 
-            {/*<Route path="/customers/:customerId(\d+)">
+            <Route exact path="/customers/:customerId(\d+)">
                 <CustomerDetail />
-             </Route>*/}
+            </Route>
+
+            <Route path="/customers/create">
+                <CustomerForm />
+            </Route>
+
+            <Route path="/customers/:customerId(\d+)/edit">
+                <CustomerEditForm />
+            </Route>
+
 
             <Route exact path="/locations">
                 <LocationList />
             </Route>
 
-            <Route exact path="/locations/:locationId(\+d)">
+            <Route path="/locations/:locationId(\d+)">
                 <LocationDetail />
             </Route>
 
@@ -100,8 +113,3 @@ export const ApplicationViews = ({isAuthenticated, setAuthUser}) => {
 }
 
 // "Exact" is needed on the first route, otherwise it will also match the other routes, and the Home will render for every route
-//if(isAuthenticated()) {
-   // <AnimalList />
-  //} else {
-     // <Redirect to="/login" />
-  //}

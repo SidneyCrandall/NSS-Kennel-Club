@@ -13,7 +13,7 @@ export const LocationForm = () => {
         employeeId: 0
     });
 
-    const [isLoading, setIsLoading] = useState(false);
+    //const [isLoading, setIsLoading] = useState(false);
     const [animals, setAnimals] = useState([]);
     const [employees,  setEmployees] = useState([]);
 
@@ -110,8 +110,8 @@ export const LocationForm = () => {
 
             <button className="btn btn-primary"
                 onClick={handleClickSaveLocation}>
-                SaveLocation
-                    </button>
+                Save Location
+            </button>
         </form>
     )
 }
