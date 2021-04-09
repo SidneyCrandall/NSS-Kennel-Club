@@ -14,8 +14,7 @@ export const LocationDetail = () => {
     const handleDelete = () => {
         setIsLoading(true);
             deleteLocation(locationId).then(() =>
-            history.push("/locations")
-            )
+            history.push("/locations"))
     }
 
     useEffect(() => {
@@ -32,7 +31,7 @@ export const LocationDetail = () => {
     return (
         <section className="animal">
             <h3 className="animal__name">{location.name}</h3>
-            <div>{location.address}</div>
+            <div className="animal__location">{location.address}</div>
             <button type="button" disabled={isLoading} onClick={handleDelete}>
                 Closed
             </button>

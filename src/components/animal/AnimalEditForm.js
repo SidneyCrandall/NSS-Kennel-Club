@@ -20,7 +20,11 @@ export const AnimalEditForm = () => {
         // event is passed through, which matches id of form
         const stateToChange = { ...animal };
         // the object with dot notation
-        stateToChange[evt.target.id] = evt.target.value;
+        let selectedVal = evt.target.value
+        if (evt.target.id.includes("Id")) {
+          selectedVal = parseInt(selectedVal)
+        }
+        stateToChange[evt.target.id] = selectedVal;
         // target the input nox. "dynamically referencing a property in my  object"
         setAnimal(stateToChange); 
     };
@@ -64,7 +68,6 @@ export const AnimalEditForm = () => {
             .then(customersFromAPI => {
                 setCustomers(customersFromAPI)
             })
-            setIsLoading(false)
     }, []);
 
     return (

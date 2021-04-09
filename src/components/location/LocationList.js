@@ -12,10 +12,9 @@ export const LocationList = () => {
             })
     };
 
-    const handleDeleteLocation = id => {
+    const closeLocation = id => {
         deleteLocation(id)
-            .then(() => getAllLocations()
-                .then(setLocations))
+            .then(() => getAllLocations().then(setLocations))
     };
 
     useEffect(() => {
@@ -25,7 +24,10 @@ export const LocationList = () => {
     return (
         <div className="container-cards">
         {locations.map(location => 
-        <LocationCard key={location.id} location={location} handleDeleteLocation={handleDeleteLocation} /> )}
+        <LocationCard 
+        key={location.id} 
+        location={location} 
+        closeLocation={closeLocation} /> )}
         </div>
     );
 };
