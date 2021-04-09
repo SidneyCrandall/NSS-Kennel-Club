@@ -14,8 +14,7 @@ export const LocationDetail = () => {
     const handleDelete = () => {
         setIsLoading(true);
             deleteLocation(locationId).then(() =>
-            history.push("/locations")
-            )
+            history.push("/locations"))
     }
 
     useEffect(() => {

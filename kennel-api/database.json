@@ -4,7 +4,7 @@
       "id": 3,
       "name": "Cullem",
       "breed": "French Bulldog",
-      "locationId": 1,
+      "locationId": "3",
       "customerId": "4"
     },
     {
@@ -67,6 +67,11 @@
       "name": "Brody Edwin",
       "email": "be@me.com",
       "address": "1997 Sunnydale Ct"
+    },
+    {
+      "email": "sc@sc.com",
+      "name": "Sidney Crandall",
+      "id": 5
     }
   ],
   "employees": [

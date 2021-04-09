@@ -51,6 +51,7 @@ useEffect(() => {
         .then(locationsFromAPI => {
             setLocations(locationsFromAPI)
         })
+        setIsLoading(false)
 }, []);
 
 useEffect(() => {
@@ -77,6 +78,7 @@ useEffect(() => {
                 .then(() => history.push("/animals"))
         }
     }
+
     return (
         <form className="animalForm">
         <h2 className="animalForm__title">New Animal</h2>

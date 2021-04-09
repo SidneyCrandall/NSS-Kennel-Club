@@ -14,12 +14,10 @@ export const AnimalCard = ({ animal, deleteAnimal }) => {
       <div className="card-content">
         <h3>Name: <span className="card-petname">{animal.name}</span></h3>
         <p>Breed: {animal.breed}</p>
-        <Link to={`/animals/${animal.id}`}>
-          <button>Details</button>
-        </Link>
-        <Link to={`animals/${animal.id}/edit`}>
-          <button type="button" onClick={() => history.push(`/animals/${animal.id}/edit`)}> Edit </button>
-        </Link>
+          <Link to={`/animals/${animal.id}`}>
+            <button>Details</button>
+          </Link>
+            <button type="button" onClick={() => history.push(`/animals/${animal.id}/edit`)}> Edit </button>
         <button type="button" onClick={() => deleteAnimal(animal.id)}>Discharge</button>
       </div>
     </div>
